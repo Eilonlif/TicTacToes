@@ -12,11 +12,11 @@ public class Player {
 	}
 	
 	public Board turn(Board b1){
-		int x = (int)(Math.random()*b1.width);
-		int y = (int)(Math.random()*b1.height);
+		int x = (int)(Math.random()*b1.size);
+		int y = (int)(Math.random()*b1.size);
 		while(b1.board[y][x].equals("O") || b1.board[y][x].equals("X")){
-			x = (int)(Math.random()*b1.width);
-			y = (int)(Math.random()*b1.height);
+			x = (int)(Math.random()*b1.size);
+			y = (int)(Math.random()*b1.size);
 
 		}
 //		System.out.println("Y: ");

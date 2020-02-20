@@ -3,7 +3,8 @@ package idanTicTacToes;
 import java.util.*;
 public class Game {
 	public static Scanner in = new Scanner(System.in);
-	public Board b = new Board();
+
+	public Board b = new Board(3);
 	public Player p1 = new Player("O");
 	public Player p2 = new Player("X");
 	
@@ -12,7 +13,7 @@ public class Game {
 		b.create();
 		int whoTurn = 1;  // 1: X, 0: O.
 		Player[] playerAry = {this.p1, this.p2};
-		for(int i = 0; i < b.width*b.height; i++){
+		for(int i = 0; i < b.size * b.size; i++){
 			if(whoTurn == 1){ whoTurn = 0; }
 			else{ whoTurn = 1; }
 

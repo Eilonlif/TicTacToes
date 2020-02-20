@@ -3,20 +3,23 @@ package idanTicTacToes;
 import java.util.*;
 
 public class Board {
-	public int width = 3;
-	public int height = 3;
-	public String [] [] board = new String [width] [height];
+	public String[][] board;
+	public int size;
+	public Board(int size){
+		this.board = new String[size][size];
+		this.size = size;
+	}
 	
 	public void print(){
-		for(int i = 0; i < board.length; i++){
+		for(int i = 0; i < size; i++){
 			System.out.println(Arrays.toString(board[i]));
 		}
 		System.out.println();
 	}
 	
 	public void create(){
-		for(int i = 0; i < board.length; i++){
-			for(int j = 0; j < board.length; j++){
+		for(int i = 0; i < size; i++){
+			for(int j = 0; j < size; j++){
 				board[i][j] = "-";
 			}
 			
@@ -24,8 +27,8 @@ public class Board {
 	}
 
 	public boolean checkFinish(){
-		for(int i = 0; i < board.length; i++) {
-			for (int j = 0; j < board.length; j++) {
+		for(int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
 				if(board[i][j].equals("-")){
 					return false;
 				}
@@ -36,7 +39,7 @@ public class Board {
 
 
 	public String checkWinHorizontal(){
-		for(int i = 0; i < board.length; i++) {
+		for(int i = 0; i < size; i++) {
 			Set<String> tmp = new HashSet<>(Arrays.asList(board[i]));
 			String[] reSized = tmp.toArray(new String[0]);
 			if (reSized.length == 1 && !reSized[0].equals("-")){
@@ -47,9 +50,9 @@ public class Board {
 	}
 
 	public String checkWinVertical(){
-		String[] tmp = new String[board.length];
-		for(int i = 0; i < board.length; i++) {
-			for(int j = 0; j < board.length; j++) {
+		String[] tmp = new String[size];
+		for(int i = 0; i < size; i++) {
+			for(int j = 0; j < size; j++) {
 				tmp[j] = board[j][i];
 			}
 			Set<String> check = new HashSet<>(Arrays.asList(tmp));
@@ -62,10 +65,10 @@ public class Board {
 	}
 
 	public String checkWinDiagniol(){
-		String[][] digis = new String[2][board.length];
-		for(int i = 0; i < board.length; i++) {
+		String[][] digis = new String[2][size];
+		for(int i = 0; i < size; i++) {
 			digis[0][i] = board[i][i];
-			digis[1][i] = board[board.length - i - 1][i];
+			digis[1][i] = board[size - i - 1][i];
 		}
 
 		for (String[] digi : digis) {
