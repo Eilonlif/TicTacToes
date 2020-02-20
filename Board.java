@@ -1,5 +1,4 @@
 package idanTicTacToes;
-
 import java.util.*;
 
 public class Board {
@@ -22,16 +21,13 @@ public class Board {
 			for(int j = 0; j < size; j++){
 				board[i][j] = "-";
 			}
-			
 		}
 	}
 
 	public boolean checkFinish(){
 		for(int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				if(board[i][j].equals("-")){
-					return false;
-				}
+				if(board[i][j].equals("-")){return false;}
 			}
 		}
 		return true;
@@ -42,9 +38,7 @@ public class Board {
 		for(int i = 0; i < size; i++) {
 			Set<String> tmp = new HashSet<>(Arrays.asList(board[i]));
 			String[] reSized = tmp.toArray(new String[0]);
-			if (reSized.length == 1 && !reSized[0].equals("-")){
-				return reSized[0];
-			}
+			if (reSized.length == 1 && !reSized[0].equals("-")){return reSized[0];}
 		}
 		return "false";
 	}
@@ -57,9 +51,7 @@ public class Board {
 			}
 			Set<String> check = new HashSet<>(Arrays.asList(tmp));
 			String[] reSized = check.toArray(new String[0]);
-			if (reSized.length == 1 && !reSized[0].equals("-")){
-				return reSized[0];
-			}
+			if (reSized.length == 1 && !reSized[0].equals("-")){return reSized[0];}
 		}
 		return "false";
 	}
@@ -74,20 +66,14 @@ public class Board {
 		for (String[] digi : digis) {
 			Set<String> tmp = new HashSet<>(Arrays.asList(digi));
 			String[] reSized = tmp.toArray(new String[0]);
-			if (reSized.length == 1 && !reSized[0].equals("-")) {
-				return reSized[0];
-			}
+			if (reSized.length == 1 && !reSized[0].equals("-")) {return reSized[0];}
 		}
 		return "false";
 	}
 
 	public String checkWin(){
-		if (checkWinVertical().equals("X") || checkWinHorizontal().equals("X") || checkWinDiagniol().equals("X")){
-			return "X";
-		}
-		else if (checkWinVertical().equals("O") || checkWinHorizontal().equals("O") || checkWinDiagniol().equals("O")){
-			return "O";
-		}
+		if (checkWinVertical().equals("X") || checkWinHorizontal().equals("X") || checkWinDiagniol().equals("X")){return "X";}
+		else if (checkWinVertical().equals("O") || checkWinHorizontal().equals("O") || checkWinDiagniol().equals("O")){return "O";}
 		return "false";
 	}
 }
