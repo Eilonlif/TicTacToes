@@ -1,2 +1,2 @@
 # TicTacToes
-tictactoe ayoyoyoyo
+tic tac toe
